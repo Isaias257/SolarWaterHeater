@@ -1,5 +1,8 @@
 #include <LiquidCrystal.h>
-LiquidCrystal lcd(11, 12, 5, 4, 3, 2);
+
+const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+
 #include <OneWire.h>
 #include <DallasTemperature.h>
  
@@ -126,6 +129,6 @@ if (sen_number == 0) { lcd.print(sensors.getTempC(T1)); lcd.write((char)223); lc
 } else if (sen_number == 4) { lcd.print(sensors.getTempC(T5)); lcd.write((char)223); lcd.print("C ");
 }
 Serial.print("Sensor Number="); Serial.println(sen_number);
-delay(2000);
+delay(1000);
 sen_number++ ;
 }
